@@ -4,16 +4,13 @@
         <img src="assets/logo/presents.svg" class="presents"/>
         <img src="assets/logo/texathon.png" class="event-logo"/>
         
-        
- 
-
     <form  class="form" [formGroup]="registrationForm" (ngSubmit)="submit($event)">
         <div class="input-wrapper">
    
     <div class="p-field">
         <label for="teamName">Team Name</label>
-        <input id="teamName" type="text" pInputText formControlName="teamName"/>
-        <div *ngIf="registrationForm.get('teamName')?.invalid && registrationForm.get('teamName')?.touched" class="p-error">
+        <input id="teamName" type="text" pInputText formControlName="username"/>
+        <div *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched" class="p-error">
         Team Name is required.
         </div>
     </div>
@@ -45,19 +42,39 @@
          
 </div>
 <ng-container>
-    <button [disabled]="loading || registrationForm.invalid" 
+    <button type="submit" [disabled]="loading || registrationForm.invalid" 
             [class.disabled]="loading || registrationForm.invalid" 
-            class="app-register p-button">
-            <p-progressSpinner *ngIf="loading" styleClass="custom-spinner" diameter="20" strokeWidth="4"></p-progressSpinner>
+            class="app-register">
+            <mat-progress-spinner
+        [diameter]="20"
+        [strokeWidth]="2"
+        color="primary"
+        mode="indeterminate"
+        class="custom-spinner"
+        *ngIf="loading"
+        
+        >
+  </mat-progress-spinner>
             <span *ngIf="!loading">Register</span>
     </button>
   </ng-container>
 </form>
-    <p-dialog header="Your PIN" [(visible)]="displayPinDialog" modal="true" [closable]="false">
-        <p *ngIf="pin">Your PIN is: <strong>{{ pin }}</strong></p>
-        <p *ngIf="pin">This PIN will be visible for 2 minutes.</p>
+    <p-dialog header="Team Register Success" class="team-popup" [(visible)]="displayTeamDialog" modal="true" [closable]="false">
+        <div class="">
+            <p class="title">Team Id</p>
+            <p class="value">{{teamDetails?.teamId}}</p>
+        </div>
+        <div class="">
+            <p class="title">Username</p>
+            <p class="value">{{teamDetails?.username}}</p>
+        </div>
+        <div class="">
+            <p class="title">Password</p>
+            <p>{{teamDetails?.pin}}</p>
+        </div>
+      
         <p-footer>
-        <button pButton type="button" label="Close" icon="pi pi-times" (click)="displayPinDialog = false"></button>
+        <button pButton type="button" label="Close" icon="pi pi-times" (click)="closePinDialog()"></button>
         </p-footer>
     </p-dialog>
    

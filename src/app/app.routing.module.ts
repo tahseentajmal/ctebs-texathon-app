@@ -1,12 +1,12 @@
 import { RouterModule, Routes } from '@angular/router';
-import { TexathonRegisterComponent } from '../components/register/register.component';
 import { NgModule } from '@angular/core';
+import { TexathonRegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
-  {
-    path: 'register', 
-    component: TexathonRegisterComponent
-  }
+ {
+    path:'register',
+    component:TexathonRegisterComponent
+ }
 ];
 
 @NgModule({

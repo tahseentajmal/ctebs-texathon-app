@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
-import { environment } from "../environments/environment";
+import { environment } from "../../environments/environment";
 import { Observable, catchError, map, throwError } from "rxjs";
 import { Injectable } from '@angular/core';
 
@@ -56,9 +56,6 @@ export class ApiService{
         errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
       }
     }
-
-    console.error(errorMessage);
-
     return throwError(() => new Error(errorMessage));
   }
 
