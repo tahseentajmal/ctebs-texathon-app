@@ -1,0 +1,67 @@
+<div class="register-wrapper">
+    <div class="logo-wrapper">
+        <img src="assets/logo/ctebs.svg" class="company-logo"/>
+        <img src="assets/logo/presents.svg" class="presents"/>
+        <img src="assets/logo/texathon.png" class="event-logo"/>
+        
+        
+ 
+
+    <form  class="form" [formGroup]="registrationForm" (ngSubmit)="submit($event)">
+        <div class="input-wrapper">
+   
+    <div class="p-field">
+        <label for="teamName">Team Name</label>
+        <input id="teamName" type="text" pInputText formControlName="teamName"/>
+        <div *ngIf="registrationForm.get('teamName')?.invalid && registrationForm.get('teamName')?.touched" class="p-error">
+        Team Name is required.
+        </div>
+    </div>
+
+    <div class="p-field">
+        <label for="companyName">Company Name</label>
+        <input id="companyName" type="text" pInputText formControlName="companyName" >
+        <div *ngIf="registrationForm.get('companyName')?.invalid && registrationForm.get('companyName')?.touched" class="p-error">
+        Company Name is required.
+        </div>
+    </div>
+
+    <div class="p-field">
+        <label for="participantName1">Participant Name 1</label>
+        <input id="participantName1" type="text" pInputText formControlName="participantName1" />
+        <div *ngIf="registrationForm.get('participantName1')?.invalid && registrationForm.get('participantName1')?.touched" class="p-error">
+        Participant Name 1 is required.
+        </div>
+    </div>
+
+    <div class="p-field">
+        <label for="participantName2">Participant Name 2</label>
+        <br/>
+        <input id="participantName2" type="text" pInputText formControlName="participantName2" />
+        <div *ngIf="registrationForm.get('participantName2')?.invalid && registrationForm.get('participantName2')?.touched" class="p-error">
+        Participant Name 2 is required.
+        </div>
+    </div>
+         
+</div>
+<ng-container>
+    <button [disabled]="loading || registrationForm.invalid" 
+            [class.disabled]="loading || registrationForm.invalid" 
+            class="app-register p-button">
+            <p-progressSpinner *ngIf="loading" styleClass="custom-spinner" diameter="20" strokeWidth="4"></p-progressSpinner>
+            <span *ngIf="!loading">Register</span>
+    </button>
+  </ng-container>
+</form>
+    <p-dialog header="Your PIN" [(visible)]="displayPinDialog" modal="true" [closable]="false">
+        <p *ngIf="pin">Your PIN is: <strong>{{ pin }}</strong></p>
+        <p *ngIf="pin">This PIN will be visible for 2 minutes.</p>
+        <p-footer>
+        <button pButton type="button" label="Close" icon="pi pi-times" (click)="displayPinDialog = false"></button>
+        </p-footer>
+    </p-dialog>
+   
+    </div>
+ 
+
+</div>

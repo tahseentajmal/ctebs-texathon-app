@@ -1,0 +1,96 @@
+.register-wrapper{
+    background: #000000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    
+}
+
+.logo-wrapper{
+
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.company-logo{
+    height: 84px;
+}
+.presents{
+    height: 16px;
+}
+
+.event-logo{
+    height: 195px;
+    width: 620px;
+}
+
+.app-register{
+    margin-top: 64px;
+    background: rgba(43, 182, 115, 1);
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    height: 48px;
+    cursor: pointer;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    &.disabled{
+        cursor: auto;
+    }
+
+}
+
+form{
+    padding: 25px;
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+    max-width: 75%;
+    flex-direction: column;
+
+    .input-wrapper{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    
+    label{
+        font-size: 12px;
+        font-weight: 500;
+        color: #C5C5C5;
+        margin-bottom: 20px;
+    }
+    align-items: center;
+
+    .p-error{
+        font-size: 12px;
+        color: #FF5555;
+        margin-top: 8px;
+        position: absolute;
+    }
+}
+
+input{
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+   
+
+
+
+}
