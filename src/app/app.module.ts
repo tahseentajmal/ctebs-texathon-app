@@ -13,20 +13,27 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessageService } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
+import { TableModule } from 'primeng/table';
+
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TexathonRegisterComponent } from './components/register/register.component';
+import { TexathonResultsComponent } from '../components/results/results.component';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TexathonRegisterComponent
+    TexathonRegisterComponent,
+    TexathonResultsComponent
   ],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
     MatDialogModule,
     AppRoutingModule,
+    MatTableModule,
     FormsModule,
     ToastModule,
     ReactiveFormsModule,
@@ -36,7 +43,8 @@ import { TexathonRegisterComponent } from './components/register/register.compon
     InputTextModule,
     DialogModule,
     ButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    TableModule
   
   ],
   providers: [MessageService],
