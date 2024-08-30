@@ -63,6 +63,7 @@ export class TexathonRegisterComponent implements OnInit {
             if (response && response.data) {
               this.displayTeamDialog = true;
               this.teamDetails = response.data
+              this.registrationForm.reset()
             }
           },
           error: () => {
