@@ -19,14 +19,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TexathonRegisterComponent } from './components/register/register.component';
 import { TexathonResultsComponent } from '../components/results/results.component';
 import {MatTableModule} from '@angular/material/table';
-
+import { PookalamComponent } from '../components/pookalam/pookalam.component';
+import { DragDropModule } from '@angular/cdk/drag-drop'; 
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TexathonRegisterComponent,
-    TexathonResultsComponent
+    TexathonResultsComponent,
+    PookalamComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -44,7 +46,8 @@ import {MatTableModule} from '@angular/material/table';
     DialogModule,
     ButtonModule,
     MatProgressSpinnerModule,
-    TableModule
+    TableModule,
+    DragDropModule
   
   ],
   providers: [MessageService],
