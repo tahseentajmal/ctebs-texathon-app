@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { TexathonRegisterComponent } from './components/register/register.component';
 import { TexathonResultsComponent } from '../components/results/results.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PookalamComponent } from '../components/pookalam/pookalam.component';
 
 export const routes: Routes = [
@@ -17,10 +18,10 @@ export const routes: Routes = [
     path: 'pookalam', 
     component: PookalamComponent
   },
-  // {
-  //   path : 'arena',
-  //   component: TexathonArenaComponent
-  // } ,
+  {
+    path : 'dashboard',
+    component: DashboardComponent
+  } ,
   {
     path: '**',
     redirectTo: 'results'
