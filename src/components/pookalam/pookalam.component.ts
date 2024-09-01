@@ -58,6 +58,7 @@ export class PookalamComponent {
   private source: CdkDropList|null = null;
   private sourceIndex!: number;
   private dragRef: DragRef|null = null;
+  public submitted = false;
 
   items: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -68,8 +69,11 @@ export class PookalamComponent {
     let images = []
     this.api.get('/submissions/round2').subscribe(
       data => {
-        console.log(data);
-        this.images = data.data
+        console.log(data.data);
+        let sorted = data.data.sort((img1:any,img2:any)=> img2.round2 - img1.round2)
+        console.log(sorted);
+        
+        this.images = sorted
         this.setPositions();
         setTimeout(()=>{
 
@@ -207,5 +211,24 @@ export class PookalamComponent {
       item.element.nativeElement.offsetLeft,
       item.element.nativeElement.offsetTop
     );
+  }
+
+  submit(){
+    let updates:any = [];
+    this.images.forEach(image => {
+      updates.push({
+        teamId: image.teamId,
+        round:"round2",
+        score: 100 - (image.position - 1)*10
+      })
+    })
+    let body = {updates:updates}
+
+    this.api.post("/score",body)
+    .subscribe( data=> {
+      this.submitted = true;
+      alert(data.message)
+    });
+    
   }
 }
