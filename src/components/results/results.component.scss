@@ -66,7 +66,7 @@ th {
   background-color: black;
   * {
 
-    font-family: "Pacifico", cursive
+    font-family:  cursive
   }
   .p-datatable{
     height: 100%;
@@ -88,19 +88,19 @@ th {
   tr:nth-child(1) {
     background: #A1D6B2;
     position: sticky;
-    top: 60px;
+    top: 55px;
   }
   tr:nth-child(2) {
     background: #CEDF9F;
     position: sticky;
-    top: 120px;
+    top: 108px;
   }
   tr:nth-child(3) {
     background: #F1F3C2;
     box-shadow: 0 5px 5px #00000038;
     // border-bottom: 5px solid #b37878;
     position: sticky;
-    top: 180px;
+    top: 163px;
   }
   tr{
     background: #ecf1d9;
