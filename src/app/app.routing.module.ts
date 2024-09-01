@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { TexathonRegisterComponent } from './components/register/register.component';
 import { TexathonResultsComponent } from '../components/results/results.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
@@ -12,10 +13,10 @@ export const routes: Routes = [
     path: 'results', 
     component: TexathonResultsComponent
   },
-  // {
-  //   path : 'arena',
-  //   component: TexathonArenaComponent
-  // } 
+  {
+    path : 'dashboard',
+    component: DashboardComponent
+  } 
 ];
 
 @NgModule({

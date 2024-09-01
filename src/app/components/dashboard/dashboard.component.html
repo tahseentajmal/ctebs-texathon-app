@@ -1,0 +1,55 @@
+<div class="start-wrapper">
+    <div class="logo-wrapper">
+      <div class="logos">
+
+        <img src="assets/logo/ctebs.svg" class="company-logo"/>
+        <img src="assets/logo/presents.svg" class="presents"/>
+        <img src="assets/logo/texathon.png" class="event-logo"/>
+        
+      </div>
+
+    
+
+
+        <div class="rounds-container">
+
+        <div class="round-card" [ngStyle]="getTransformStyle(i)" *ngFor="let round of rounds;let i = index;" [class.enabled]="allowedRounds?.includes(i+1)">
+        
+
+
+          
+          <div class="card-image-container">
+            <img [src]="round?.isSurprise && !allowedRounds?.includes(i+1) ? 'assets/rounds/surprise-round.png': 'assets/rounds/'  + round.image" class="card-image" />
+          </div>
+
+          <div class="card-header">
+            <span class="title">{{'Round ' + (i+1)}}</span>
+            <div class="">
+              <span class="round-title">{{round?.name}}</span>
+            </div>
+            <div class="card-body">
+                <span class="duration-container">
+                  <mat-icon class="icon">alarm</mat-icon>
+                  <span class="duration">{{round?.duration}}</span>
+                </span>
+
+               
+            </div>
+
+            
+            
+        </div>
+    </div>
+
+
+        
+       
+         
+        
+
+
+        
+    </div>
+ 
+
+</div>
