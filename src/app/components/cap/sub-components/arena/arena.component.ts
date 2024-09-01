@@ -134,7 +134,6 @@ export class CapArenaComponent {
       if (totalSeconds <= 0) {
         totalSeconds = 0;
         clearInterval(this.countdownInterval);
-        console.log('Timer finished');
       }
     }
 
@@ -156,7 +155,6 @@ export class CapArenaComponent {
           totalSeconds = 0;
           this.timeLeft = this.formatTime(0, 0, 0);
           clearInterval(this.countdownInterval);
-          console.log('Timer finished');
         }
       }
     }, 1000);
@@ -234,9 +232,7 @@ export class CapArenaComponent {
       `${newHeightDown}px`
     );
 
-    console.log(
-      `MouseMove called: deltaX=${deltaY}, newWidthLeft=${newHeightTop}, newWidthRight=${newHeightDown}`
-    );
+
   }
 
   onMouseUpVertical(event: any) {
