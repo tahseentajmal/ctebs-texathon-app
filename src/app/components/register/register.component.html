@@ -52,26 +52,27 @@
         mode="indeterminate"
         class="custom-spinner"
         *ngIf="loading"
-        
         >
   </mat-progress-spinner>
             <span *ngIf="!loading">Register</span>
     </button>
   </ng-container>
 </form>
-    <p-dialog header="Team Register Success" class="team-popup" [(visible)]="displayTeamDialog" modal="true" [closable]="false">
-        <div class="">
-            <p class="title">Team Id</p>
-            <p class="value">{{teamDetails?.teamId}}</p>
-        </div>
-        <div class="">
-            <p class="title">Username</p>
-            <p class="value">{{teamDetails?.username}}</p>
-        </div>
-        <div class="">
-            <p class="title">Password</p>
-            <p>{{teamDetails?.pin}}</p>
-        </div>
+    <p-dialog header="Team Credentials" class="team-popup" [(visible)]="displayTeamDialog"  modal="true" [closable]="false">
+        <div class="team-popup-wrapper">
+            <div class="">
+                <p class="title">Team Id</p>
+                <p class="value">{{teamDetails?.teamId}}</p>
+            </div>
+            <div class="">
+                <p class="title">Username</p>
+                <p class="value">{{teamDetails?.username}}</p>
+            </div>
+            <div class="">
+                <p class="title">Password</p>
+                <p>{{teamDetails?.password}}</p>
+            </div>
+    </div>
       
         <p-footer>
         <button pButton type="button" label="Close" icon="pi pi-times" (click)="closePinDialog()"></button>
