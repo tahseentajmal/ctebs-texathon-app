@@ -71,7 +71,6 @@ export class   DashboardComponent{
       })).subscribe({
         next: (response: any) => {
           if (response && response.data) {
-            console.log(response?.data)
             if(response.data.allowedRounds){
               this.allowedRounds = response?.data?.allowedRounds
               
@@ -79,7 +78,6 @@ export class   DashboardComponent{
           }
         },
         error: (err:any) => {
-          console.log(err)
         }
       })
     }catch(err){
@@ -91,7 +89,6 @@ export class   DashboardComponent{
 
   getTransformStyle(index: number): any {
     let scale = 'scale' + '(' + 0.85 + ')';
-    console.log(this.openRound)
 
     if(this.allowedRounds.includes(index+1) ){
       scale= 'scale(1)';

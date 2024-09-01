@@ -69,10 +69,7 @@ export class PookalamComponent {
     let images = []
     this.api.get('/submissions/round2').subscribe(
       data => {
-        console.log(data.data);
         let sorted = data.data.sort((img1:any,img2:any)=> img2.round2 - img1.round2)
-        console.log(sorted);
-        
         this.images = sorted
         this.setPositions();
         setTimeout(()=>{
@@ -90,7 +87,6 @@ export class PookalamComponent {
   renderPreview() {
     this.images.forEach(image => {
       const iframe = document.getElementById('preview' + image.teamId) as HTMLIFrameElement;
-      console.log(iframe);
       
       if (iframe) {
         const doc = iframe.contentDocument || iframe.contentWindow?.document;
