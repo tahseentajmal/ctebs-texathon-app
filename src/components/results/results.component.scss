@@ -12,6 +12,7 @@
     align-items: center;
     position: relative;
     padding-bottom: 30px;
+    height: 125px;
 
   }
 
@@ -19,7 +20,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1%;
     position: relative;
   }
 }
@@ -35,12 +35,15 @@ th {
   border: 3px solid white;
   margin: 3px;
   padding: 15px;
+  width: 100%;
+  max-height: calc(100% - 130px);
 }
 
 .results-outline {
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 100%;
 }
 .leaderboard {
   font-weight: 600;
@@ -49,9 +52,11 @@ th {
   font-style: normal;
   background-color: #000000;
   font-size:x-large;
-  width: calc(fit-content + 50px);
+  // width: calc(fit-content + 50px);
   align-self: center;
-  transform: translate(0px, -30px)
+  // transform: translate(0px, -30px)
+  position: absolute;
+  top: 115px;
 }
 
 ::ng-deep p-table {
@@ -59,10 +64,62 @@ th {
   border-radius: 5px;
   overflow: hidden;
   background-color: black;
+  * {
+
+    font-family: "Pacifico", cursive
+  }
+  .p-datatable{
+    height: 100%;
+  }
+  .p-datatable-wrapper{
+    height: 100%;
+  }
+  table{
+    border-collapse: collapse;
+    overflow: auto;
+    height: 100%;
+  }
+  thead{
+    position: sticky;
+    tr{
+      top: 1px!important;
+    }
+  }
+  tr:nth-child(1) {
+    background: #A1D6B2;
+    position: sticky;
+    top: 60px;
+  }
+  tr:nth-child(2) {
+    background: #CEDF9F;
+    position: sticky;
+    top: 120px;
+  }
+  tr:nth-child(3) {
+    background: #F1F3C2;
+    box-shadow: 0 5px 5px #00000038;
+    // border-bottom: 5px solid #b37878;
+    position: sticky;
+    top: 180px;
+  }
+  tr{
+    background: #ecf1d9;
+  }
 }
 
 
-::ng-deep .p-table {
+::ng-deep p-table {
+  ::-webkit-scrollbar {
+    width: 5px; /* Adjust the width as needed */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: red; /* Adjust the color as needed */
+  }
+
+  .p-datatable-wrapper{
+    scrollbar-width: none;
+  }
   .custom-table {
     border-radius: 10px;
     overflow: hidden; /* This ensures that the border-radius applies correctly */
@@ -76,9 +133,15 @@ th {
   .custom-table .p-table tbody tr:last-child td {
     border-radius: 0 0 10px 10px;
   }
+
+
 }
 
 .event-logo {
   width: 30% !important; 
   height: auto !important; 
 }
+
+
+
+

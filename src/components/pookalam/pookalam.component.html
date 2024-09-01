@@ -1,0 +1,37 @@
+<h1>Pookalam Evaluation</h1>
+<!-- <button>Submit</button> -->
+<!-- HTML !-->
+<button class="button-33" role="button">Submit</button>
+
+<!-- <button (click)="add()">Add</button>
+<button (click)="shuffle()">Shuffle</button>
+
+<br />
+
+<ul class="example-list">
+  <li *ngFor="let image of images">{{ image.position }}</li>
+</ul> -->
+
+<div
+  class="example-container"
+  cdkDropListGroup
+  [ngStyle]="{ '--box-width': boxWidth, '--box-height': boxHeight }"
+>
+  <div
+    cdkDropList
+    (cdkDropListEntered)="onDropListEntered($event)"
+    (cdkDropListDropped)="onDropListDropped()"
+  ></div>
+  <div
+    cdkDropList
+    (cdkDropListEntered)="onDropListEntered($event)"
+    (cdkDropListDropped)="onDropListDropped()"
+    *ngFor="let image of images"
+  >
+    <div cdkDrag class="example-box">
+        <div class="drag">Drag here</div>
+        <iframe [id]="'preview'+ image.teamId" frameborder="0"></iframe>
+        <div class="position">{{image.position}}</div>
+    </div>
+  </div>
+</div>

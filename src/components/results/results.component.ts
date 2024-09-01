@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ViewChild } from '@angular/core';
+import { ApiService } from '../../app/services/api.service';
 
 @Component({
   selector: 'app-results',
@@ -7,8 +9,48 @@ import { Component } from '@angular/core';
 })
 export class TexathonResultsComponent {
 
-  products : any[]  = Products
+  leaderboard : any[]  = []
+  @ViewChild('tableContainer', { static: false }) tableContainer: any;
+  
+  constructor(
+    private api: ApiService
+  ){
+    
+  }
 
+  ngOnInit(){
+    this.api.get('/leaderboard')
+    .subscribe(data => {
+      this.leaderboard = data.data.leaderboard
+    })
+  }
+
+  ngAfterViewInit() {
+    this.startAutoScroll();
+  }
+
+  startAutoScroll() {
+    let scrollAmount = 0;
+    const scrollInterval = 50; // Speed of scroll in ms
+    const container = document.getElementsByClassName('p-datatable-wrapper')[0];
+
+    setInterval(() => {
+      container.scrollTop = scrollAmount;
+      scrollAmount += 1;
+      if (this.isUserNearBottom(container)) {
+        setTimeout(()=>{
+          scrollAmount = 0; // Reset scroll
+        },1000)
+      }
+    }, scrollInterval);
+  }
+  
+  isUserNearBottom(scrollContainer:any) {
+    const threshold = 0;
+    const position = scrollContainer.scrollTop + scrollContainer.offsetHeight;
+    const height = scrollContainer.scrollHeight;
+    return position > height - threshold;
+  }
 }
 
 const Products = [

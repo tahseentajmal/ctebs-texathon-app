@@ -8,29 +8,45 @@
     <div class="results-outline">
       <span class="leaderboard">LeaderBoard</span>
 
-      <p-table [value]="products" [tableStyle]="{ 'min-width': '60rem' }">
+      <p-table [value]="leaderboard" [tableStyle]="{ 'min-width': '60rem' }">
         <ng-template pTemplate="header">
           <tr>
-            <th pSortableColumn="code" style="width: 20%">
-              Code <p-sortIcon field="code" />
+            <th >
+              Sl No
             </th>
-            <th pSortableColumn="name" style="width: 20%">
-              Name <p-sortIcon field="name" />
+            <th pSortableColumn="companyName" style="width: 20%">
+              Company 
             </th>
-            <th pSortableColumn="category" style="width: 20%">
-              Category <p-sortIcon field="category" />
+            <th pSortableColumn="userName" style="width: 20%">
+              Team Name
             </th>
-            <th pSortableColumn="quantity" style="width: 20%">
-              Quantity <p-sortIcon field="quantity" />
+            <th pSortableColumn="round1" >
+              Round 1 
+            </th>
+            <th pSortableColumn="round2" >
+              Round 2 
+            </th>
+            <th pSortableColumn="round3" >
+              Round 3 
+            </th>
+            <th pSortableColumn="round4">
+              Round 4
+            </th>
+            <th pSortableColumn="totalScore">
+              Total 
             </th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-product let-i="rowIndex">
           <tr>
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.quantity }}</td>
+            <td>{{i+1}}</td>
+            <td>{{ product.companyName }}</td>
+            <td>{{ product.username }}</td>
+            <td>{{ product.round1 }}</td>
+            <td>{{ product.round2 }}</td>
+            <td>{{ product.round3 }}</td>
+            <td>{{ product.round4 }}</td>
+            <td>{{ product.totalScore }}</td>
           </tr>
         </ng-template>
       </p-table>
